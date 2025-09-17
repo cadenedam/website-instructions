@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Expert — GitHub Pages tips</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Expert: Best practices & deployment options</h1>
+      <nav><a href="index.html">Home</a> | <a href="novice.html">Novice</a></nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <article>
+      <h2>Project vs User site</h2>
+      <p>Project pages can be published from <code>/docs</code> or a dedicated branch such as <code>gh-pages</code> — choose based on your workflow. If you want a single central site for a class, a user site (`USERNAME.github.io`) is the simplest. :contentReference[oaicite:10]{index=10}</p>
+
+      <h2>React apps (short)</h2>
+      <p>If you build with React, the common pattern is to add a <code>homepage</code> in <code>package.json</code> and use the <code>gh-pages</code> package to publish the built <code>build/</code> folder. (Example below.) :contentReference[oaicite:11]{index=11}</p>
+
+      <pre><code>// package.json snippet
+"homepage": "https://USERNAME.github.io/REPO-NAME",
+"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+}</code></pre>
+
+      <h2>Custom domain</h2>
+      <p>Add a CNAME file or set the domain in Pages settings; GitHub can create the CNAME commit for you. Remember to update DNS records at your domain registrar. :contentReference[oaicite:12]{index=12}</p>
+
+      <h2>Enforce HTTPS</h2>
+      <p>Turn on "Enforce HTTPS" in Pages settings after your site is published. :contentReference[oaicite:13]{index=13}</p>
+    </article>
+  </main>
+</body>
+</html>
